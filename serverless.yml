@@ -1,0 +1,76 @@
+service: sls-appsync-backend
+
+plugins:
+   - serverless-appsync-plugin
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-2
+
+
+
+functions:
+  graphql:
+    handler: handler.graphql
+
+custom:
+  accountId: 132260253285
+  appSync:
+    name: sls-appsync-api
+    authenticationType: AMAZON_COGNITO_USER_POOLS
+    userPoolConfig:
+      awsRegion:  us-east-2
+      defaultAction: ALLOW
+      userPoolId: us-east-2_C3ktUb4Xp # { Ref: CognitoUserPool } 
+    mappingTemplates:
+      - dataSource: awsLambdaDataSource
+        type: Mutation #Query, Mutation, Subscription
+        field: addPost
+        request: "addpost-request-mapping-template.txt"
+        response: "addpost-response-mapping-template.txt"
+      - dataSource: awsLambdaDataSource
+        type: Mutation #Query, Mutation, Subscription
+        field: updatePost
+        request: "updatepost-request-mapping-template.txt"
+        response: "updatepost-response-mapping-template.txt"     
+      - dataSource: awsLambdaDataSource
+        type: Query #Query, Mutation, Subscription
+        field: getPost
+        request: "getPost-request-mapping-template.txt"
+        response: "getPost-response-mapping-template.txt"   
+      - dataSource: awsLambdaDataSource
+        type: Query #Query, Mutation, Subscription
+        field: allPosts
+        request: "getAllPostMappingTemplate/getAllPost-request-mapping-template.txt"
+        response: "getAllPostMappingTemplate/getAllPost-response-mapping-template.txt"      
+      - dataSource: awsLambdaDataSource
+        type: Mutation #Query, Mutation, Subscription
+        field: deletePost
+        request: "deletePost-request-mapping-template.txt"
+        response: "deletePost-response-mapping-template.txt"                     
+    schema: # defaults schema.graphql
+    serviceRole: "AppSyncServiceRole"
+    dataSources:
+      - type: AWS_LAMBDA
+        name: awsLambdaDataSource
+        description: 'Lambda DataSource'
+        config:
+          lambdaFunctionArn: { Fn::GetAtt: [GraphqlLambdaFunction, Arn] } # Where GraphqlLambdaFunction is the lambda function cloudformation resource created by serverless for the serverless function named graphql
+          serviceRoleArn: { Fn::GetAtt: [AppSyncLambdaServiceRole, Arn] }
+
+      - type: AMAZON_DYNAMODB
+        name: Posts
+        description: 'A table of Posts'
+        config:
+          tableName: { Ref: PostTable }
+          serviceRoleArn: { Fn::GetAtt: [AppSyncDynamoDBServiceRole, Arn] }
+       
+
+
+
+resources:
+  - ${file(resources/cognito-user-pool.yml)}
+  - ${file(resources/dynamodb-table.yml)}
+  - ${file(resources/appsync_lambda.yml)}
