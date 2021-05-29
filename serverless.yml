@@ -1,3 +1,5 @@
+org: rosius
+app: sls-test
 service: sls-appsync-backend
 
 plugins:

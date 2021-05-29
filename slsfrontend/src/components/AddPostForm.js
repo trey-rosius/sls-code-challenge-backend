@@ -15,7 +15,13 @@ const [formState, setFormState] = useState(initialState);
       }
 
 
-     
+     /**
+      * 
+      * @param {author,title,content} addPostToGraphQL 
+      * @returns id,author,title,content
+      * this function adds the post content gotten from the form, to our Posts table 
+      * through the graphQl Api
+      */
 
     async function addPostToGraphQl(event) {
       console.log("clicked");
