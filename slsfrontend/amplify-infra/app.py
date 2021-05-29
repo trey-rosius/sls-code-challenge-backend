@@ -9,11 +9,11 @@ from aws_cdk import core as cdk
 # being updated to use `cdk`.  You may delete this import if you don't need it.
 from aws_cdk import core
 
-from amplify_frontend_infra.amplify_frontend_infra_stack import AmplifyFrontendInfraStack
+from amplify_infra.amplify_infra_stack import AmplifyInfraStack
 
 
 app = core.App()
-AmplifyFrontendInfraStack(app, "AmplifyFrontendInfraStack",
+AmplifyInfraStack(app, "AmplifyInfraStack",
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
     # but a single synthesized template can be deployed anywhere.

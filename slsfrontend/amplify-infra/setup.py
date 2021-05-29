@@ -6,7 +6,7 @@ with open("README.md") as fp:
 
 
 setuptools.setup(
-    name="amplify_frontend_infra",
+    name="amplify_infra",
     version="0.0.1",
 
     description="An empty CDK Python app",
@@ -15,11 +15,11 @@ setuptools.setup(
 
     author="author",
 
-    package_dir={"": "amplify_frontend_infra"},
-    packages=setuptools.find_packages(where="amplify_frontend_infra"),
+    package_dir={"": "amplify_infra"},
+    packages=setuptools.find_packages(where="amplify_infra"),
 
     install_requires=[
-        "aws-cdk.core==1.105.0",
+        "aws-cdk.core==1.106.1",
     ],
 
     python_requires=">=3.6",
