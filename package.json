@@ -7,19 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
-    "body-parser": "^1.15.2",
-    "cors": "2.8.4",
-    "env-cmd": "^5.0.0",
-    "imports-loader": "^0.7.1",
-    "jest": "^21.2.1",
-    "serverless-appsync-plugin": "^1.4.0",
-    "serverless-webpack": "^4.1.0",
-    "uuid": "^2.0.3",
-    "webpack": "^3.8.1",
-    "webpack-node-externals": "^1.6.0"
+    "serverless-appsync-plugin": "^1.4.0"
   },
   "keywords": [],
   "author": "",

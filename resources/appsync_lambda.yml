@@ -1,4 +1,5 @@
 Resources:
+                          
   AppSyncLambdaServiceRole:
       Type: "AWS::IAM::Role"
       Properties:
@@ -9,6 +10,7 @@ Resources:
             - Effect: "Allow"
               Principal:
                 Service:
+                  - "lambda.amazonaws.com"
                   - "appsync.amazonaws.com"
                   - "dynamodb.amazonaws.com"
               Action:
@@ -32,4 +34,6 @@ Resources:
                   Resource:
                     - "arn:aws:lambda:us-east-2:${self:custom.accountId}:function:${self:service}-dev-graphql"
                     - "arn:aws:lambda:use-east-2:${self:custom.accountId}:function:${self:service}-dev-graphql:*"
+                    - "arn:aws:dynamodb:us-east-2:${self:custom.accountId}:table/Posts"
+                    - "arn:aws:dynamodb:us-east-2:${self:custom.accountId}:table/Posts:*"
                                 
