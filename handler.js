@@ -147,7 +147,7 @@ exports.graphql = (event, context, callback) => {
     }     
 
 		default: {
-			callback(`Unknown field, unable to resolve ${event.field}`, null);
+			callback(`Unable to resolve ${event.field}`, null);
 			break;
 		}
 	}
