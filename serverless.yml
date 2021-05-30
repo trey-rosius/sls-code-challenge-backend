@@ -40,8 +40,8 @@ custom:
       - dataSource: awsLambdaDataSource
         type: Query #Query, Mutation, Subscription
         field: getPost
-        request: "getPost-request-mapping-template.txt"
-        response: "getPost-response-mapping-template.txt"   
+        request: "getpost-request-mapping-template.txt"
+        response: "getpost-response-mapping-template.txt"   
       - dataSource: awsLambdaDataSource
         type: Query #Query, Mutation, Subscription
         field: allPosts
