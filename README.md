@@ -78,6 +78,6 @@ The graphQl APi supports 5 operations
 I created a dev stage pipeline for the application
 
 
-![alt text](https://raw.githubusercontent.com/trey-rosius/sls-code-challenge-backend/blob/master/Screen Shot 2021-05-30 at 21.27.07.png)
+![alt text](https://raw.githubusercontent.com/trey-rosius/sls-code-challenge-backend/blob/master/Screen%20Shot%202021-05-30%20at%2021.27.07.png)
 
 
