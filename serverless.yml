@@ -25,7 +25,7 @@ custom:
     userPoolConfig:
       awsRegion:  us-east-2
       defaultAction: ALLOW
-      userPoolId: us-east-2_C3ktUb4Xp # { Ref: CognitoUserPool } 
+      userPoolId:  { Ref: CognitoUserPool } 
     mappingTemplates:
       - dataSource: awsLambdaDataSource
         type: Mutation #Query, Mutation, Subscription

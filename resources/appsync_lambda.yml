@@ -10,9 +10,9 @@ Resources:
             - Effect: "Allow"
               Principal:
                 Service:
-                  - "lambda.amazonaws.com"
+                 
                   - "appsync.amazonaws.com"
-                  - "dynamodb.amazonaws.com"
+                  
               Action:
                 - "sts:AssumeRole"
         Policies:
@@ -23,17 +23,11 @@ Resources:
                 - Effect: "Allow"
                   Action:
                     - "lambda:invokeFunction"
-                    - "dynamodb:Query"
-                    - "dynamodb:Scan"
-                    - "dynamodb:GetItem"
-                    - "dynamodb:PutItem"
-                    - "dynamodb:UpdateItem"
-                    - "dynamodb:DeleteItem"
+
   
 
                   Resource:
                     - "arn:aws:lambda:us-east-2:${self:custom.accountId}:function:${self:service}-dev-graphql"
                     - "arn:aws:lambda:use-east-2:${self:custom.accountId}:function:${self:service}-dev-graphql:*"
-                    - "arn:aws:dynamodb:us-east-2:${self:custom.accountId}:table/Posts"
-                    - "arn:aws:dynamodb:us-east-2:${self:custom.accountId}:table/Posts:*"
+ 
                                 
