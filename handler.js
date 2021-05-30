@@ -139,7 +139,7 @@ exports.graphql = (event, context, callback) => {
     }
 
     
-    callback(error, "deleted successfully");
+    callback(error, "deleted post successfully");
   });
     
     break;
